@@ -15,6 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Deprem360logo from './assets/deprem360.png';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -43,7 +44,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color: '#263959', // Updated color
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -97,8 +98,8 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose} sx={{ color: '#263959' }}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose} sx={{ color: '#263959' }}>My account</MenuItem>
     </Menu>
   );
 
@@ -120,24 +121,24 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <IconButton size="large" aria-label="show 4 new mails" sx={{ color: '#263959' }}>
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <p style={{ color: '#263959' }}>Messages</p>
       </MenuItem>
       <MenuItem>
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
-          color="inherit"
+          sx={{ color: '#263959' }}
         >
           <Badge badgeContent={17} color="error">
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p style={{ color: '#263959' }}>Notifications</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -145,39 +146,39 @@ export default function PrimarySearchAppBar() {
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          color="inherit"
+          sx={{ color: '#263959' }}
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <p style={{ color: '#263959' }}>Profile</p>
       </MenuItem>
     </Menu>
   );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: '#55967e' }}>
+      <AppBar position="static" sx={{ backgroundColor: '#e4e7ec' }}>
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2, color: '#263959' }}
           >
             <MenuIcon />
           </IconButton>
+          <img src={Deprem360logo} alt="Deprem360 logo" style={{ height: 40, marginRight: 16 }} />
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { xs: 'none', sm: 'block' }, color: '#263959', fontWeight: 'bold', fontSize: '1.3rem', fontFamily: 'monospace' }}
           >
-            MUI
+            DEPREM360
           </Typography>
           <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon sx={{ color: '#263959' }} />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
@@ -186,7 +187,7 @@ export default function PrimarySearchAppBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton size="large" aria-label="show 4 new mails" sx={{ color: '#263959' }}>
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
@@ -194,7 +195,7 @@ export default function PrimarySearchAppBar() {
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
-              color="inherit"
+              sx={{ color: '#263959' }}
             >
               <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
@@ -207,7 +208,7 @@ export default function PrimarySearchAppBar() {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
+              sx={{ color: '#263959' }}
             >
               <AccountCircle />
             </IconButton>
@@ -219,7 +220,7 @@ export default function PrimarySearchAppBar() {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              color="inherit"
+              sx={{ color: '#263959' }}
             >
               <MoreIcon />
             </IconButton>

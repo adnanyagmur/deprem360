@@ -5,6 +5,7 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Dialog, DialogTitle, DialogContent, TextField, Button, CircularProgress } from '@mui/material';
 import BuildingInfoDialog from './building-dialog';
+import LlmFeadBackDialog from './llm-feedback-dialog';
 
 
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
@@ -22,6 +23,7 @@ const MapboxMap = () => {
   const [concreteType, setConcreteType] = useState(''); // Beton yapısı için state
   const [loading, setLoading] = useState(false); // API isteği için yükleniyor durumu
   const [response, setResponse] = useState(null); // API yanıtı için state
+  const [feedbackDialogVisible, setFeedbackDialogVisible] = useState(false); // Yanıt bilgisi dialog görünürlüğü
 
   useEffect(() => {
     mapRef.current = new mapboxgl.Map({
@@ -120,6 +122,10 @@ const MapboxMap = () => {
         'line-width': 3,
       },
     });
+    // 4 saniye sonra yeni dialogu aç
+    setTimeout(() => {
+      setFeedbackDialogVisible(true);
+    }, 10000);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -217,6 +223,11 @@ const MapboxMap = () => {
         setConcreteType={setConcreteType}
       />
         )}
+        <LlmFeadBackDialog
+        open={feedbackDialogVisible}
+        onClose={() => setFeedbackDialogVisible(false)}
+        response={response}
+      />
       </div>
   );
 }
