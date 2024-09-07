@@ -1,50 +1,53 @@
-# React + TypeScript + Vite
+*Bu proje TEKNOFEST 2024 Antalya T3AI Hackathon Yarışması Uygulama Geliştirme Kategorisi için geliştirilmiştir.*
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# DEPREM360
+## Kamu kurumlarından mühendislik firmalarına, afet yönetim merkezlerinden bireylere kadar geniş bir kullanıcı kitlesine hitap ederek, deprem öncesi hazırlık ve sonrası kriz yönetimine odaklanmaktadır. Deprem riskine karşı güvenlik, dayanıklılık ve etkin koordinasyon sağlama amacını taşır. 
 
-Currently, two official plugins are available:
+````
+Çözümümüz, kamu kurumlarından mühendislik firmalarına, afet yönetim merkezlerinden bireylere kadar geniş bir kullanıcı kitlesine hitap ederek, deprem öncesi hazırlık, risk analizi ve sonrası kriz yönetimine odaklanmaktadır. Bu kapsamda, deprem riskine karşı güvenlik önlemlerinin artırılması, yapıların dayanıklılığının sağlanması ve kriz anında etkin koordinasyon ile müdahale süreçlerinin iyileştirilmesi amaçlanmaktadır. Kullanıcıların ihtiyaçlarına göre geliştirilen modüller, sürecin her aşamasında kapsamlı bir destek sağlar:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Analiz Modu: Bina ve zemin verilerinin detaylı analiz edilerek risklerin belirlenmesi.
+Simülasyon Modu: Deprem anında ve sonrasında bina dayanıklılığını ve zemin hareketlerini simüle ederek potansiyel sonuçların tahmin edilmesi.
+Enkaz Modu: Deprem sonrası oluşan enkaz alanlarının analiz edilmesi ve arama kurtarma çalışmalarına destek sağlanması.
+Enkaz Formu: Enkaz altındaki insanların ve kritik bilgilerin hızlı bir şekilde toplanıp yetkililere iletilmesi.
+Talep Formu: Deprem sonrası ihtiyaç duyulan malzeme ve yardımların hızlı ve organize bir şekilde bildirilmesi ve yönetilmesi.
+````
 
-## Expanding the ESLint configuration
+## Takım Adı: Takım ID
+- 👤 Adnan YAĞMUR 
+- 👤 Elif Sinem AĞAR
+- 👤 Taha EREL
+....
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Uygulamadan Ekran Görüntüleri
+![image](https://github.com/user-attachments/assets/90074975-bdba-4234-8182-db0594d48154)
 
-- Configure the top-level `parserOptions` property like this:
+![image](https://github.com/user-attachments/assets/f4fffaf7-c73b-4269-bcb5-6b5ab2f67e38)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+![image](https://github.com/user-attachments/assets/852c5a7c-2afa-4ed2-a8f4-5d797e9c2226)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+![image](https://github.com/user-attachments/assets/7fb6ef51-7724-4177-8f0b-5c6ab35d1b0b)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+![image](https://github.com/user-attachments/assets/5ddc5f47-b456-48aa-a476-efc05f76242d)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+![image](https://github.com/user-attachments/assets/09d18617-4f8e-43a2-8b9e-da05595e4edb)
+
+![image](https://github.com/user-attachments/assets/29c1e8a1-4d7c-4bbb-93fd-5d526014d8d4)
+
+
+
+
+
+
+
+## Uygulamayı Lokalde Çalıştırma
+
+### Sıra ile aşağıdaki komutları çalıştırarak localde deneyebilirsiniz.
+
+#### git clone https://github.com/adnanyagmur/deprem360.git
+
+#### npm i
+
+#### npm run dev
+
+
