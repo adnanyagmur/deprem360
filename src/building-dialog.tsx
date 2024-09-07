@@ -128,6 +128,33 @@ const BuildingInfoDialog: React.FC<BuildingInfoDialogProps> = ({
       width: "180px",
       height: "40px",
     };
+
+// Dummy data fill function
+const fillDummyData = () => {
+  setBuildingName("Örnek Bina");
+  setBuildingAge("1990");
+  setUsePurpose("Konut");
+  setApprovalDate("2000-05-12");
+  setPermitStatus("Var");
+  setFloorCount("10");
+  setBuildingHeight("30");
+  setStructuralSystem("Betonarme");
+  setTotalArea("2000");
+  setConcreteClass("C25");
+  setSteelQuality("S420");
+  setEarthquakeZone("1. Bölge");
+  setSoilClass("Zemin Sınıfı I");
+  setWaterLevel("10");
+  setIsSymmetric("Evet");
+  setTorsionRisk("Düşük");
+  setRigidity("Yüksek");
+  setDamageStatus("Az Hasarlı");
+  setStrengthening("Evet");
+  setEarthquakeEvaluation("Dayanıklı");
+};
+
+
+
     const handleClick = () => {
       fileInputRef.current?.click();
     };
@@ -136,6 +163,7 @@ const BuildingInfoDialog: React.FC<BuildingInfoDialogProps> = ({
       if (files) {
         console.log("Selected files:", files);
         // Dosyayı yükleme işlemi burada gerçekleştirilebilir
+        fillDummyData();
       }
     };
     return (
