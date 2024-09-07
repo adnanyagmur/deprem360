@@ -3,6 +3,8 @@
 # DEPREM360
 ## Kamu kurumlarından mühendislik firmalarına, afet yönetim merkezlerinden bireylere kadar geniş bir kullanıcı kitlesine hitap ederek, deprem öncesi hazırlık ve sonrası kriz yönetimine odaklanmaktadır. Deprem riskine karşı güvenlik, dayanıklılık ve etkin koordinasyon sağlama amacını taşır. 
 
+Test etmek için ---> [Deprem360](https://deprem360.netlify.app/)
+
 ````
 Çözümümüz, kamu kurumlarından mühendislik firmalarına, afet yönetim merkezlerinden bireylere kadar geniş bir kullanıcı kitlesine hitap ederek, deprem öncesi hazırlık, risk analizi ve sonrası kriz yönetimine odaklanmaktadır. Bu kapsamda, deprem riskine karşı güvenlik önlemlerinin artırılması, yapıların dayanıklılığının sağlanması ve kriz anında etkin koordinasyon ile müdahale süreçlerinin iyileştirilmesi amaçlanmaktadır. Kullanıcıların ihtiyaçlarına göre geliştirilen modüller, sürecin her aşamasında kapsamlı bir destek sağlar:
 
@@ -13,7 +15,7 @@ Enkaz Formu: Enkaz altındaki insanların ve kritik bilgilerin hızlı bir şeki
 Talep Formu: Deprem sonrası ihtiyaç duyulan malzeme ve yardımların hızlı ve organize bir şekilde bildirilmesi ve yönetilmesi.
 ````
 
-## Takım Adı: Takım ID
+## Eternal Takımı: 563754
 - 👤 Adnan YAĞMUR 
 - 👤 Elif Sinem AĞAR
 - 👤 Taha EREL
@@ -33,6 +35,9 @@ Talep Formu: Deprem sonrası ihtiyaç duyulan malzeme ve yardımların hızlı v
 ![image](https://github.com/user-attachments/assets/09d18617-4f8e-43a2-8b9e-da05595e4edb)
 
 ![image](https://github.com/user-attachments/assets/29c1e8a1-4d7c-4bbb-93fd-5d526014d8d4)
+
+![image](https://github.com/user-attachments/assets/2417c842-1590-4c12-ba72-5802de5ba40b)
+
 
 
 
