@@ -2,6 +2,7 @@ import { BuildRounded } from "@mui/icons-material";
 import ComputerIcon from "@mui/icons-material/Computer";
 import HelpCenterIcon from "@mui/icons-material/HelpCenter";
 import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
+import Inventory2Icon from "@mui/icons-material/Inventory2";
 import { Button, Grid, Stack } from "@mui/material";
 
 interface Props {
@@ -40,6 +41,11 @@ const LeftBar = (props: Props) => {
       id: 3,
       name: "Erzak Teslim",
       icon: <HelpCenterIcon />,
+    },
+    {
+      id: 4,
+      name: "Talep Ekle",
+      icon: <Inventory2Icon />,
     },
   ];
   return (

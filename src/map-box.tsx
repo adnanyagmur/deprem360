@@ -354,7 +354,7 @@ const MapboxMap = () => {
         selectedBuilding={selectedBuilding}
         handleSubmit={handleSubmit}
         loading={loading}
-        response={response}
+       // response={response}
         buildingName={buildingName}
         setBuildingName={setBuildingName}
         buildingAge={buildingAge}

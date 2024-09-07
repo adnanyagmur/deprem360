@@ -8,6 +8,7 @@ import ZeminMap from "./zemin";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import SimulationMap from "./simulasyon";
 import EnkazMode from "./enkaz";
+import TalepEkle from "./talepEkle";
 
 const App: React.FC = () => {
   const [zemin, setZemin] = useState<boolean>(false);
@@ -45,11 +46,12 @@ const App: React.FC = () => {
         return <EnkazMode />;
       case 3:
         return <ErzakForm />;
+      case 4:
+        return <TalepEkle />;
       default:
         return <MapboxExample />;
     }
   }, [tab, zemin, destination]);
-  console.log("destination", destination);
 
   const handleDestinationChange = (event: SelectChangeEvent) => {
     setDestination(event.target.value);
