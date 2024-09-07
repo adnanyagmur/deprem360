@@ -11,6 +11,10 @@
   "compilerOptions": {
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "strict": false
+    "strict": false,
+    "strictFunctionTypes": false,
+    "skipLibCheck": true,
+    "types": ["node"],
+    "noImplicitAny": false
   }
 }
