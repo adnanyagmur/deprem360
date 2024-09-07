@@ -7,6 +7,7 @@ import ErzakForm from "./Components/HelpForm";
 import ZeminMap from "./zemin";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import SimulationMap from "./simulasyon";
+import EnkazMode from "./enkaz";
 
 const App: React.FC = () => {
   const [zemin, setZemin] = useState<boolean>(false);
@@ -41,7 +42,7 @@ const App: React.FC = () => {
       case 1:
         return <SimulationMap destination={destination} />;
       case 2:
-        return <MapboxExample />;
+        return <EnkazMode />;
       case 3:
         return <ErzakForm />;
       default:
@@ -55,14 +56,14 @@ const App: React.FC = () => {
   };
 
   // JSON'u indirme fonksiyonu
- const downloadFeedbackAsJson = () => {
-  const feedbacks = localStorage.getItem('feedbacks');
-  const blob = new Blob([feedbacks || '[]'], { type: 'application/json' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = 'feedbacks.json';
-  link.click();
-};
+  const downloadFeedbackAsJson = () => {
+    const feedbacks = localStorage.getItem("feedbacks");
+    const blob = new Blob([feedbacks || "[]"], { type: "application/json" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "feedbacks.json";
+    link.click();
+  };
   return (
     <Grid>
       <Grid item xs={12}>
@@ -85,7 +86,8 @@ const App: React.FC = () => {
                     }}
                     sx={{
                       height: "40px",
-                      width: "100px",
+                      width: "150px",
+                      border: "1px solid #263959",
                     }}
                   >
                     <option value="bina">Bina</option>
@@ -95,19 +97,23 @@ const App: React.FC = () => {
               )}
               <Grid item ml={2}>
                 {tab === 0 ? (
-                  <>
-                  <Button
-                    startIcon={<FileUploadIcon />}
-                    variant="outlined"
-                    sx={buttonStyle}
-                    onClick={handleClick}
-                  >
-                    Dosya Yükle
-                  </Button>
-                  <Button onClick={downloadFeedbackAsJson} sx={buttonStyle} >
-        Geri Bildirimleri İndir (JSON)
-      </Button>
-                  </>
+                  <div style={{ display: "flex", gap: "12px" }}>
+                    <Button
+                      startIcon={<FileUploadIcon />}
+                      variant="outlined"
+                      sx={buttonStyle}
+                      onClick={handleClick}
+                    >
+                      Dosya Yükle
+                    </Button>
+                    <Button
+                      onClick={downloadFeedbackAsJson}
+                      sx={buttonStyle}
+                      variant="outlined"
+                    >
+                      Geri Bildirimleri İndir (JSON)
+                    </Button>
+                  </div>
                 ) : tab === 1 ? (
                   <Select
                     native
