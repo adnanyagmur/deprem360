@@ -2,9 +2,7 @@ import { BuildRounded } from "@mui/icons-material";
 import ComputerIcon from "@mui/icons-material/Computer";
 import HelpCenterIcon from "@mui/icons-material/HelpCenter";
 import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
-import LayersIcon from "@mui/icons-material/Layers";
 import { Button, Grid, Stack } from "@mui/material";
-import React from "react";
 
 interface Props {
   setTab: (tab: number) => void;

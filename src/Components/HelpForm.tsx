@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { useState } from "react";
 import {
   TextField,
   Button,
@@ -12,8 +14,7 @@ import {
   Grid,
   Select,
   MenuItem,
-  Stack,
-  IconButton,
+  Stack
 } from "@mui/material";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 interface Erzak {
@@ -66,6 +67,7 @@ interface ErzakData {
 
 const ErzakForm: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
+   // @ts-ignore
   const [tableData, setTableData] = useState<Erzak[]>(initialData);
   const [selectedIl, setSelectedIl] = useState<string>("");
   const [selectedIlce, setSelectedIlce] = useState<string>("");
@@ -341,7 +343,7 @@ const ErzakForm: React.FC = () => {
                   name="productCategory"
                   value={formData.productCategory}
                   size="small"
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e as React.ChangeEvent<HTMLInputElement>)}
                   sx={{ width: "222px" }}
                 >
                   <MenuItem value="Yemek">Yemek</MenuItem>

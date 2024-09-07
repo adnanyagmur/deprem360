@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useRef } from 'react';
+import { useRef, useState } from 'react';
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import {
     Dialog,
@@ -78,8 +78,6 @@ const BuildingInfoDialog: React.FC<BuildingInfoDialogProps> = ({
     selectedBuilding,
     handleSubmit,
     loading,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    response,
     buildingName,
     setBuildingName,
     buildingAge,
@@ -122,7 +120,7 @@ const BuildingInfoDialog: React.FC<BuildingInfoDialogProps> = ({
     setEarthquakeEvaluation,
 }) => {
     const fileInputRef = useRef<HTMLInputElement | null>(null);
-    const [files, setFiles] = React.useState<FileList | null>(null);
+    const [files, setFiles] = useState<FileList | null>(null);
 
     const buttonStyle = {
       backgroundColor: "#263959",

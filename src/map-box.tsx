@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 
@@ -177,11 +178,12 @@ const MapboxMap = () => {
           const feature: mapboxgl.MapboxGeoJSONFeature = e.features[0];
       
           if (feature.id !== undefined) {
-            
+            // @ts-ignore
             const coordinates = feature.geometry?.coordinates[0][0];
             fetchAddressFromCoordinates(coordinates, feature.id);
       
             // Bina etrafına sınır çiz
+            // @ts-ignore
             drawBuildingBoundary(feature.geometry?.coordinates[0]);
           }
         }
