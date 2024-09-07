@@ -6,6 +6,16 @@ import PrimarySearchAppBar from "./Navbar";
 const App: React.FC = () => {
  
 const buttonStyle = { backgroundColor: '#263959', color: '#ffffff', '&:hover': { backgroundColor: '#1d2d46' } }
+
+ // JSON'u indirme fonksiyonu
+ const downloadFeedbackAsJson = () => {
+  const feedbacks = localStorage.getItem('feedbacks');
+  const blob = new Blob([feedbacks || '[]'], { type: 'application/json' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'feedbacks.json';
+  link.click();
+};
   return (
     <Grid>
       <Grid item xs={12}>
@@ -28,18 +38,21 @@ const buttonStyle = { backgroundColor: '#263959', color: '#ffffff', '&:hover': {
       </Grid>
     <Grid item xs={9} >
    <Stack direction="column"    >
-    <Stack  direction={'row'} justifyContent={'flex-end'} py={2}>
-    <Grid item ml={2}>
+    <Stack  direction={'row'} justifyContent={'flex-end'} py={2} gap={2}>
+    
         <Button variant="contained" sx={buttonStyle} >
           Add Building
         </Button>
-        </Grid>
-        <Grid item ml={2}>
+   
+        
         <Button variant="contained" sx={buttonStyle}>
           Add Building
         </Button>
+        <Button onClick={downloadFeedbackAsJson} sx={buttonStyle} >
+        Geri Bildirimleri İndir (JSON)
+      </Button>
         
-    </Grid>
+
     </Stack>
     <Grid item xs={12} >
       <MapboxExample/>
