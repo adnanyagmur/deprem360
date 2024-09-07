@@ -120,6 +120,7 @@ const BuildingInfoDialog: React.FC<BuildingInfoDialogProps> = ({
     setEarthquakeEvaluation,
 }) => {
     const fileInputRef = useRef<HTMLInputElement | null>(null);
+    const [files, setFiles] = React.useState<FileList | null>(null);
 
     const buttonStyle = {
       backgroundColor: "#263959",
@@ -162,6 +163,7 @@ const fillDummyData = () => {
       const files = event.target.files;
       if (files) {
         console.log("Selected files:", files);
+        setFiles(files);
         // Dosyayı yükleme işlemi burada gerçekleştirilebilir
         fillDummyData();
       }
@@ -181,7 +183,7 @@ const fillDummyData = () => {
                   <b>Deprem Dayanıklılığı Değerlendirme Formu</b>
                 </Typography>
                 <Grid display={"flex"} direction={"row"} gap={2} item xs={4}>
-                <Button
+            <Stack item direction={"column"}>   <Button
                 startIcon={<FileUploadIcon />}
                 variant="outlined"
                 sx={buttonStyle}
@@ -194,7 +196,13 @@ const fillDummyData = () => {
                   style={{ display: "none" }}
                   onChange={handleFileChange}
                 />
+
+
               </Button>
+              <Typography variant="caption" color="textSecondary">
+  {files?.item(0)?.name || "Dosya seçilmedi"}
+  </Typography>
+              </Stack> 
                   <Button
                     type="submit"
                     variant="contained"
