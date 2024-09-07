@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-loss-of-precision */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useRef, useState } from 'react';
@@ -21,8 +22,11 @@ const EnkazMode = () => {
   const mapRef = useRef<mapboxgl.Map | null>(null);
 
   const [formVisible, setFormVisible] = useState(false);
+  // @ts-ignore
   const [buildingName, setBuildingName] = useState('Topkapı');
+   // @ts-ignore
   const [buildingAge, setBuildingAge] = useState('5');
+   // @ts-ignore
   const [usePurpose, setUsePurpose] = useState('Konut');
   const [address] = useState('Topkapı, Pazar Tekkesi Sk. 2-1, 34093 Fatih/İstanbul');
   const [supportReached] = useState(false); // Destek ulaştı mı toggle (sabit olarak true)
