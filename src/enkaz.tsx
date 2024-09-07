@@ -7,6 +7,12 @@ import { Dialog, DialogTitle, DialogContent, TextField, Button, Switch, FormCont
 
 // Görsel dosyasını import edin
 import markerIcon from './assets/afadlogo.jpg'; // Bu yolu görselin bulunduğu dosyaya göre ayarlayın
+const buttonStyle = {
+  backgroundColor: "#263959",
+  color: "#ffffff",
+  "&:hover": { backgroundColor: "#1d2d46" },
+ 
+};
 
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
@@ -58,14 +64,23 @@ const EnkazMode = () => {
       });
 
       // İkon ekleme (görsel dosyası kullanımı)
-      const img = document.createElement('img');
-      img.src = markerIcon; // Yerel dosyayı kullan
-      img.style.width = '30px'; // İkonun genişliği küçültüldü
-      img.style.height = '20px'; // İkonun yüksekliği küçültüldü
+      const createMarker = (coordinates: [number, number]) => {
+        const img = document.createElement('img');
+        img.src = markerIcon; // Yerel dosyayı kullan
+        img.style.width = '30px'; // İkonun genişliği küçültüldü
+        img.style.height = '20px'; // İkonun yüksekliği küçültüldü
 
-      new mapboxgl.Marker({ element: img })
-        .setLngLat([28.931890849484197, 41.016797837089584]) // Verilen koordinatlar
-        .addTo(mapRef.current!);
+        new mapboxgl.Marker({ element: img })
+          .setLngLat(coordinates) // Verilen koordinatlar
+          .addTo(mapRef.current!);
+      };
+
+      // İlk ikon (mevcut)
+      createMarker([28.931890849484197, 41.016797837089584]);
+
+      // Yakınlara eklenen diğer iki ikon
+      createMarker([28.9315, 40.9000]); // 2. konum
+      createMarker([28.9293, 41.01509]); // 3. konum
 
       mapRef.current!.on('click', '3d-buildings', (e) => {
         if (e.features && e.features.length > 0) {
@@ -171,10 +186,8 @@ const EnkazMode = () => {
                 ))}
               </TableBody>
             </Table>
-            <Button type="submit" variant="contained" color="primary" fullWidth>
-              Kapat
-            </Button>
-            <Button variant="contained" color="secondary" fullWidth onClick={handleCreateRoute}>
+           
+            <Button variant="contained" sx={buttonStyle} fullWidth onClick={handleCreateRoute}>
               Yol Haritası Oluştur
             </Button>
           </form>
