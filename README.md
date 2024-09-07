@@ -47,7 +47,7 @@ Talep Formu: Deprem sonrası ihtiyaç duyulan malzeme ve yardımların hızlı v
 
 ## Uygulamayı Lokalde Çalıştırma
 
-### Sıra ile aşağıdaki komutları çalıştırarak localde deneyebilirsiniz.
+### Sıra ile aşağıdaki komutları çalıştırarak localde deneyebilirsiniz. ('CORS' hatası almanız durumunda tarayıcınıza CORS Extention kurmanız gerekmektedir.)
 
 #### git clone https://github.com/adnanyagmur/deprem360.git
 
