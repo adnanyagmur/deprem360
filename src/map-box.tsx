@@ -69,16 +69,85 @@ const MapboxMap = () => {
 
 
 
-  useEffect(() => {
-    mapRef.current = new mapboxgl.Map({
-      container: mapContainerRef.current!,
-      style: 'mapbox://styles/koraydurmaz/cm0qcb5ng00g201pj6ok7ai18',
-      center: [28.9784, 41.0082],
-      zoom: 12,
-      pitch: 45,
-    });
+ useEffect(() => {
+  mapRef.current = new mapboxgl.Map({
+    container: mapContainerRef.current!,
+    style: 'mapbox://styles/koraydurmaz/cm0qcb5ng00g201pj6ok7ai18',
+    center: [28.9784, 41.0082],
+    zoom: 12,
+    pitch: 45,
+  });
 
     mapRef.current.on('load', () => {
+
+
+      mapRef.current!.addSource('earthquakes', {
+        type: 'geojson',
+        // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
+        // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
+        data: 'point_map.geojson',
+        cluster: true,
+        clusterMaxZoom: 14, // Max zoom to cluster points on
+        clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+    });
+
+    mapRef.current!.addLayer({
+      id: 'unclustered-point',
+      type: 'circle',
+              source: 'earthquakes',
+              filter: ['has', 'point_count'],
+              paint: {
+                  // Use step expressions (https://docs.mapbox.com/style-spec/reference/expressions/#step)
+                  // with three steps to implement three types of circles:
+                  //   * Blue, 20px circles when point count is less than 100
+                  //   * Yellow, 30px circles when point count is between 100 and 750
+                  //   * Pink, 40px circles when point count is greater than or equal to 750
+                  'circle-color': [
+                      'step',
+                      ['get', 'point_count'],
+                      '#FF0000',
+                      100,
+                      '#FF0000',
+                      750,
+                      '#FF0000'
+                  ],
+                  'circle-radius': [
+                      'step',
+                      ['get', 'point_count'],
+                      20,
+                      100,
+                      30,
+                      750,
+                      40
+                  ]
+              },
+      minzoom: 5  // Bu değeri zoom seviyesi 5'ten büyükse göster anlamında ayarladım
+  
+          });
+          mapRef.current!.addLayer({
+            id: 'cluster-count',
+            type: 'symbol',
+            source: 'earthquakes',
+            filter: ['has', 'point_count'],
+            layout: {
+                'text-field': ['get', 'point_count_abbreviated'],
+                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+                'text-size': 12
+            }
+        });
+
+        mapRef.current!.addLayer({
+            id: 'unclustered-point',
+            type: 'circle',
+            source: 'earthquakes',
+            filter: ['!', ['has', 'point_count']],
+            paint: {
+                'circle-color': '#11b4da',
+                'circle-radius': 4,
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#FF0000'
+            }
+        });
       mapRef.current!.addLayer({
         id: '3d-buildings',
         source: 'composite',
