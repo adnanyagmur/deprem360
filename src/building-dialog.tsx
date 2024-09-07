@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import FileUploadIcon from "@mui/icons-material/FileUpload";
 import {
     Dialog,
     DialogTitle,
@@ -118,8 +119,25 @@ const BuildingInfoDialog: React.FC<BuildingInfoDialogProps> = ({
     earthquakeEvaluation,
     setEarthquakeEvaluation,
 }) => {
-    const buttonStyle = { backgroundColor: '#263959', color: '#ffffff', '&:hover': { backgroundColor: '#1d2d46' } };
+    const fileInputRef = useRef<HTMLInputElement | null>(null);
 
+    const buttonStyle = {
+      backgroundColor: "#263959",
+      color: "#ffffff",
+      "&:hover": { backgroundColor: "#1d2d46" },
+      width: "180px",
+      height: "40px",
+    };
+    const handleClick = () => {
+      fileInputRef.current?.click();
+    };
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const files = event.target.files;
+      if (files) {
+        console.log("Selected files:", files);
+        // Dosyayı yükleme işlemi burada gerçekleştirilebilir
+      }
+    };
     return (
         <Dialog
           open={formVisible}
@@ -134,7 +152,21 @@ const BuildingInfoDialog: React.FC<BuildingInfoDialogProps> = ({
                 <Typography variant="h5">
                   <b>Deprem Dayanıklılığı Değerlendirme Formu</b>
                 </Typography>
-                <Grid item xs={4}>
+                <Grid display={"flex"} direction={"row"} gap={2} item xs={4}>
+                <Button
+                startIcon={<FileUploadIcon />}
+                variant="outlined"
+                sx={buttonStyle}
+                onClick={handleClick}
+              >
+                Dosya Yükle
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  style={{ display: "none" }}
+                  onChange={handleFileChange}
+                />
+              </Button>
                   <Button
                     type="submit"
                     variant="contained"
