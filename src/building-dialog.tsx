@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef } from 'react';
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import {
@@ -77,6 +78,7 @@ const BuildingInfoDialog: React.FC<BuildingInfoDialogProps> = ({
     selectedBuilding,
     handleSubmit,
     loading,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     response,
     buildingName,
     setBuildingName,
@@ -183,7 +185,7 @@ const fillDummyData = () => {
                   <b>Deprem Dayanıklılığı Değerlendirme Formu</b>
                 </Typography>
                 <Grid display={"flex"} direction={"row"} gap={2} item xs={4}>
-            <Stack item direction={"column"}>   <Button
+            <Stack direction={"column"}>   <Button
                 startIcon={<FileUploadIcon />}
                 variant="outlined"
                 sx={buttonStyle}

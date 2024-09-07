@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 // 6 Siddet  style: 'mapbox://styles/koraydurmaz/cm0ravro100m401qua3694vbb',

@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { Dialog, DialogTitle, DialogContent, TextField, Button, CircularProgress } from '@mui/material';
 import BuildingInfoDialog from './building-dialog';
 import LlmFeadBackDialog from './llm-feedback-dialog';
 
@@ -174,14 +174,15 @@ const MapboxMap = () => {
 
       mapRef.current!.on('click', '3d-buildings', (e) => {
         if (e.features && e.features.length > 0) {
-          const feature = e.features[0];
-
+          const feature: mapboxgl.MapboxGeoJSONFeature = e.features[0];
+      
           if (feature.id !== undefined) {
-            const coordinates = feature.geometry.coordinates[0][0];
+            
+            const coordinates = feature.geometry?.coordinates[0][0];
             fetchAddressFromCoordinates(coordinates, feature.id);
-
+      
             // Bina etrafına sınır çiz
-            drawBuildingBoundary(feature.geometry.coordinates[0]);
+            drawBuildingBoundary(feature.geometry?.coordinates[0]);
           }
         }
       });
@@ -218,6 +219,7 @@ const MapboxMap = () => {
       type: 'geojson',
       data: {
         type: 'Feature',
+        properties: {}, // Add an empty properties object
         geometry: {
           type: 'LineString',
           coordinates: [...coordinates, coordinates[0]], // Son noktayı birleştirerek kapalı bir sınır çiziyoruz
@@ -397,7 +399,7 @@ const MapboxMap = () => {
         open={feedbackDialogVisible}
         onClose={() => setFeedbackDialogVisible(false)}
         response={response}
-        requestData={reqData}
+        requestData={reqData as RequestDataProps}
         onSubmitFeedback={(feedback) => console.log('Geri bildirim gönderildi:', feedback)}
       /> 
 

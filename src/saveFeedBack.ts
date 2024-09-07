@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import fs from 'fs';
 const path = require('path');
 
@@ -5,7 +6,7 @@ const path = require('path');
 const dataFilePath = path.join(__dirname, 'feedbackData.json');
 
 // Geri bildirimi JSON dosyasına yazma fonksiyonu
-function saveFeedback(newFeedback) {
+function saveFeedback(newFeedback: { interaction_id: string; user_id: string; timestamp: string; content_generated: { input_prompt: string; response: string; }; user_feedback: { rating: string; feedback_text: string; preferred_response: string; }; feedback_metadata: { device: string; session_duration: number; }; }) {
     fs.readFile(dataFilePath, 'utf8', (err, data) => {
         if (err) {
             console.error('Dosya okunamadı:', err);
